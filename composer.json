@@ -1,0 +1,31 @@
+{
+    "name": "swissfreecommerce/payment-merchant",
+    "description": "A PHP wrapper for Swiss free commerce payment API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Majid Mohammadian",
+            "email": "majeedmohammadian@gmail.com",
+            "role": "Full Stack Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.0.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^v3.8.1",
+        "spatie/laravel-data": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SwissFreeCommerce\\PaymentMerchant\\": "src/"
+        }
+    },
+    "minimum-stability" : "stable",
+    "support": {
+        "issues": "https://github.com/swissfreecommerce/payment-merchant/issues",
+        "forum": "https://twitter.com/swissfreecommerce",
+        "source": "https://github.com/swissfreecommerce/payment-merchant"
+    }
+}
