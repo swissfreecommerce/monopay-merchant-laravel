@@ -1,5 +1,5 @@
 {
-    "name": "swissfreecommerce/payment-merchant",
+    "name": "swissfreecommerce/monopay-merchant-laravel",
     "description": "A PHP wrapper for Swiss free commerce payment API",
     "type": "library",
     "license": "MIT",
