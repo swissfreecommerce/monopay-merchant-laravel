@@ -34,3 +34,66 @@ php artisan vendor:publish --provider="SwissFreeCommerce\PaymentMerchant\Provide
 You should now have a `config/monopay.php` file that allows you to configure the basics of this package.
 
 ## Documentation
+
+### Get Currency
+In order to receive all the currencies, a request must be sent in the following form
+
+```php
+use SwissFreeCommerce\PaymentMerchant\MonopayService;
+```
+
+```php
+$service = new MonopayService;
+
+$result = $service->getCurrency();
+```
+
+### Merchant Request
+To send a request, the request must be sent in the following form
+
+```php
+use SwissFreeCommerce\PaymentMerchant\MonopayService;
+use SwissFreeCommerce\PaymentMerchant\Data\DataRequest;
+```
+
+```php
+$service = new MonopayService;
+
+$data = new DataRequest('currency iso code', 'order id in your system', 'float amount');
+
+$result = $service->request($data);
+```
+
+### Merchant Verify
+To send a verify, the request must be sent in the following form
+
+```php
+use SwissFreeCommerce\PaymentMerchant\MonopayService;
+use SwissFreeCommerce\PaymentMerchant\Data\TrackingCode;
+```
+
+```php
+$service = new MonopayService;
+
+$data = new TrackingCode('tracking code');
+
+$result = $service->verify($data);
+```
+
+
+### Merchant Status
+To send a status, the request must be sent in the following form
+
+```php
+use SwissFreeCommerce\PaymentMerchant\MonopayService;
+use SwissFreeCommerce\PaymentMerchant\Data\TrackingCode;
+```
+
+```php
+
+$service = new MonopayService;
+
+$data = new TrackingCode('tracking code');
+
+$result = $service->status($data);
+```
