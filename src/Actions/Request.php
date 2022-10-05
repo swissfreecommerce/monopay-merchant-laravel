@@ -2,8 +2,9 @@
 
 namespace SwissFreeCommerce\PaymentMerchant\Actions;
 
-use SwissFreeCommerce\PaymentMerchant\Data\Request as DataRequest;
 use Exception;
+use SwissFreeCommerce\PaymentMerchant\Data\Request as DataRequest;
+use SwissFreeCommerce\PaymentMerchant\Helpers\Connect;
 
 class Request
 {
@@ -17,6 +18,6 @@ class Request
      */
     public function execute(DataRequest $data): array
     {
-        return [];
+        return Connect::send('merchant/request', $data->toArray());
     }
 }

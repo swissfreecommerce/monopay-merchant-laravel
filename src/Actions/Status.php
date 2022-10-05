@@ -2,8 +2,9 @@
 
 namespace SwissFreeCommerce\PaymentMerchant\Actions;
 
-use SwissFreeCommerce\PaymentMerchant\Data\TrackingCode as DataTrackingCode;
 use Exception;
+use SwissFreeCommerce\PaymentMerchant\Data\TrackingCode as DataTrackingCode;
+use SwissFreeCommerce\PaymentMerchant\Helpers\Connect;
 
 class Status
 {
@@ -17,6 +18,6 @@ class Status
      */
     public function execute(DataTrackingCode $data): array
     {
-        return [];
+        return Connect::send('merchant/status', $data->toArray());
     }
 }

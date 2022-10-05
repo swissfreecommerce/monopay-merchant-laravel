@@ -2,14 +2,12 @@
 
 namespace SwissFreeCommerce\PaymentMerchant\Data;
 
-use Spatie\LaravelData\Data;
 use Illuminate\Contracts\Support\Arrayable;
+use Spatie\LaravelData\Data;
 
 class Request extends Data
 {
     public function __construct(
-        public string $merchant_id,
-        public string $merchant_secret,
         public string $currency_iso_code,
         public string $order_id,
         public float  $amount)
@@ -26,16 +24,6 @@ class Request extends Data
     public static function rules(Arrayable|array $payload): Arrayable|array
     {
         return [
-            'merchant_id'       => [
-                'required',
-                'string',
-                'max:100'
-            ],
-            'merchant_secret'   => [
-                'required',
-                'string',
-                'max:100'
-            ],
             'currency_iso_code' => [
                 'required',
                 'string',

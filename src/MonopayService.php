@@ -2,12 +2,13 @@
 
 namespace SwissFreeCommerce\PaymentMerchant;
 
+use Illuminate\Http\JsonResponse;
+use SwissFreeCommerce\PaymentMerchant\Actions\GetCurrency as ActionGetCurrency;
+use SwissFreeCommerce\PaymentMerchant\Actions\Request as ActionRequest;
+use SwissFreeCommerce\PaymentMerchant\Actions\Status as ActionStatus;
+use SwissFreeCommerce\PaymentMerchant\Actions\Verify as ActionVerify;
 use SwissFreeCommerce\PaymentMerchant\Data\Request as DataRequest;
 use SwissFreeCommerce\PaymentMerchant\Data\TrackingCode as DataTrackingCode;
-use SwissFreeCommerce\PaymentMerchant\Actions\Request as ActionsRequest;
-use SwissFreeCommerce\PaymentMerchant\Actions\Verify as ActionsVerify;
-use SwissFreeCommerce\PaymentMerchant\Actions\Status as ActionsStatus;
-use Illuminate\Support\Facades\Http;
 
 class MonopayService
 {
@@ -20,19 +21,19 @@ class MonopayService
      *
      * @return string
      */
-    private function get_path(string $path = ''): string
+    public function get_path(string $path = ''): string
     {
-        return self::API_PATH . $path;
+        return self::API_PATH.$path;
     }
 
     /**
      * get all currency
      *
-     * @return void
+     * @return JsonResponse
      */
-    public function getCurrency(): void
+    public function getCurrency(): JsonResponse
     {
-
+        return (new ActionGetCurrency)->execute();
     }
 
     /**
@@ -40,11 +41,11 @@ class MonopayService
      *
      * @param DataRequest $data
      *
-     * @return void
+     * @return JsonResponse
      */
-    public function request(DataRequest $data): void
+    public function request(DataRequest $data): JsonResponse
     {
-
+        return (new ActionRequest)->execute($data);
     }
 
     /**
@@ -52,11 +53,11 @@ class MonopayService
      *
      * @param DataTrackingCode $data
      *
-     * @return void
+     * @return JsonResponse
      */
-    public function verify(DataTrackingCode $data): void
+    public function verify(DataTrackingCode $data): JsonResponse
     {
-
+        return (new ActionVerify)->execute($data);
     }
 
     /**
@@ -64,10 +65,10 @@ class MonopayService
      *
      * @param DataTrackingCode $data
      *
-     * @return void
+     * @return JsonResponse
      */
-    public function status(DataTrackingCode $data): void
+    public function status(DataTrackingCode $data): JsonResponse
     {
-
+        return (new ActionStatus)->execute($data);
     }
 }
