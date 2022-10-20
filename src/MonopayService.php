@@ -21,7 +21,7 @@ class MonopayService
      *
      * @return string
      */
-    public function get_path(string $path = ''): string
+    public function getPath(string $path = ''): string
     {
         return self::API_PATH.$path;
     }
@@ -33,7 +33,9 @@ class MonopayService
      */
     public function getCurrency(): JsonResponse
     {
-        return (new ActionGetCurrency)->execute();
+        $response = (new ActionGetCurrency)->execute();
+
+        return response()->json($response);
     }
 
     /**
@@ -45,7 +47,9 @@ class MonopayService
      */
     public function request(DataRequest $data): JsonResponse
     {
-        return (new ActionRequest)->execute($data);
+        $response = (new ActionRequest)->execute($data);
+
+        return response()->json($response);
     }
 
     /**
@@ -57,7 +61,9 @@ class MonopayService
      */
     public function verify(DataTrackingCode $data): JsonResponse
     {
-        return (new ActionVerify)->execute($data);
+        $response = (new ActionVerify)->execute($data);
+
+        return response()->json($response);
     }
 
     /**
@@ -69,6 +75,8 @@ class MonopayService
      */
     public function status(DataTrackingCode $data): JsonResponse
     {
-        return (new ActionStatus)->execute($data);
+        $response = (new ActionStatus)->execute($data);
+
+        return response()->json($response);
     }
 }

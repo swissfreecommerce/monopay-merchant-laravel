@@ -25,17 +25,17 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SwissFreeCommerce\\PaymentMerchant\\Providers\\MonopayPackageServiceProvider"
+                "SwissFreeCommerce\\PaymentMerchant\\Providers\\MonopayServiceProvider"
             ],
             "aliases": {
-                "MonopayService": "SwissFreeCommerce\\PaymentMerchant\\MonopayPackageFacade"
+                "MonopayService": "SwissFreeCommerce\\PaymentMerchant\\Facades\\MonopayService"
             }
         }
     },
     "minimum-stability" : "stable",
     "support": {
-        "issues": "https://github.com/swissfreecommerce/payment-merchant/issues",
+        "issues": "https://github.com/swissfreecommerce/monopay-merchant-laravel/issues",
         "forum": "https://twitter.com/swissfreecommerce",
-        "source": "https://github.com/swissfreecommerce/payment-merchant"
+        "source": "https://github.com/swissfreecommerce/monopay-merchant-laravel"
     }
 }

@@ -10,11 +10,10 @@ class GetCurrency
     /**
      * Get all currency.
      *
-     * @return array
-     * @throws Exception
+     * @return string
      */
-    public function execute(): array
+    public function execute()
     {
-        return Connect::send('general/currency', $data->toArray());
+        return Connect::send('general/currency');
     }
 }

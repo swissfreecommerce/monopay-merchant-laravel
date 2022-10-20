@@ -18,7 +18,7 @@ Add the service provider to the providers array in the config/app.php config fil
 
     ...
 
-    SwissFreeCommerce\PaymentMerchant\Providers\MonopayPackageServiceProvider::class,
+    SwissFreeCommerce\PaymentMerchant\Providers\MonopayServiceProvider::class,
 ]
 ```
 
@@ -28,7 +28,7 @@ Copy the `config` file from `vendor/swissfreecommerce/monopay-merchant-laravel/c
 Run the following command to publish the package config file:
 
 ```bash
-php artisan vendor:publish --provider="SwissFreeCommerce\PaymentMerchant\Providers\MonopayPackageServiceProvider"
+php artisan vendor:publish --provider="SwissFreeCommerce\PaymentMerchant\Providers\MonopayServiceProvider"
 ```
 
 You should now have a `config/monopay.php` file that allows you to configure the basics of this package.
@@ -39,7 +39,7 @@ You should now have a `config/monopay.php` file that allows you to configure the
 In order to receive all the currencies, a request must be sent in the following form
 
 ```php
-use SwissFreeCommerce\PaymentMerchant\MonopayService;
+use MonopayService;
 ```
 
 ```php
@@ -52,7 +52,7 @@ $result = $service->getCurrency();
 To send a request, the request must be sent in the following form
 
 ```php
-use SwissFreeCommerce\PaymentMerchant\MonopayService;
+use MonopayService;
 use SwissFreeCommerce\PaymentMerchant\Data\DataRequest;
 ```
 
@@ -68,7 +68,7 @@ $result = $service->request($data);
 To send a verify, the request must be sent in the following form
 
 ```php
-use SwissFreeCommerce\PaymentMerchant\MonopayService;
+use MonopayService;
 use SwissFreeCommerce\PaymentMerchant\Data\TrackingCode;
 ```
 
@@ -85,7 +85,7 @@ $result = $service->verify($data);
 To send a status, the request must be sent in the following form
 
 ```php
-use SwissFreeCommerce\PaymentMerchant\MonopayService;
+use MonopayService;
 use SwissFreeCommerce\PaymentMerchant\Data\TrackingCode;
 ```
 

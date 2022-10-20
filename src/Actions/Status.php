@@ -13,10 +13,9 @@ class Status
      *
      * @param DataTrackingCode $data
      *
-     * @return array
-     * @throws Exception
+     * @return string
      */
-    public function execute(DataTrackingCode $data): array
+    public function execute(DataTrackingCode $data)
     {
         return Connect::send('merchant/status', $data->toArray());
     }

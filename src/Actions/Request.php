@@ -13,10 +13,9 @@ class Request
      *
      * @param DataRequest $data
      *
-     * @return array
-     * @throws Exception
+     * @return string
      */
-    public function execute(DataRequest $data): array
+    public function execute(DataRequest $data)
     {
         return Connect::send('merchant/request', $data->toArray());
     }

@@ -3,11 +3,15 @@
 namespace SwissFreeCommerce\PaymentMerchant\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use SwissFreeCommerce\PaymentMerchant\MonopayService;
 
-class MonopayPackageServiceProvider extends ServiceProvider
+class MonopayServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        $this->app->bind('MonopayService', function($app) {
+            return new MonopayService;
+        });
     }
 
     public function boot()
